@@ -26,64 +26,70 @@ class D extends B {
     override bar(v: string) {}
 >bar : Symbol(D.bar, Decl(override1.ts, 8, 23))
 >v : Symbol(v, Decl(override1.ts, 10, 17))
+
+    override toString() { return ''; }
+>toString : Symbol(D.toString, Decl(override1.ts, 10, 30))
 }
 
 class C {
->C : Symbol(C, Decl(override1.ts, 11, 1))
+>C : Symbol(C, Decl(override1.ts, 13, 1))
 
     override foo(v: string) {}
->foo : Symbol(C.foo, Decl(override1.ts, 13, 9))
->v : Symbol(v, Decl(override1.ts, 14, 17))
+>foo : Symbol(C.foo, Decl(override1.ts, 15, 9))
+>v : Symbol(v, Decl(override1.ts, 16, 17))
+
+    override toString() { return ''; }
+>toString : Symbol(C.toString, Decl(override1.ts, 16, 30))
 }
 
 function f () {
->f : Symbol(f, Decl(override1.ts, 15, 1))
+>f : Symbol(f, Decl(override1.ts, 19, 1))
 
     return class extends B {
 >B : Symbol(B, Decl(override1.ts, 0, 0))
 
         override foo (v: string) {}
->foo : Symbol((Anonymous class).foo, Decl(override1.ts, 18, 28))
->v : Symbol(v, Decl(override1.ts, 19, 22))
+>foo : Symbol((Anonymous class).foo, Decl(override1.ts, 22, 28))
+>v : Symbol(v, Decl(override1.ts, 23, 22))
     
         fooo (v: string) {}
->fooo : Symbol((Anonymous class).fooo, Decl(override1.ts, 19, 35))
->v : Symbol(v, Decl(override1.ts, 21, 14))
+>fooo : Symbol((Anonymous class).fooo, Decl(override1.ts, 23, 35))
+>v : Symbol(v, Decl(override1.ts, 25, 14))
     
         override bar(v: string) {}
->bar : Symbol((Anonymous class).bar, Decl(override1.ts, 21, 27))
->v : Symbol(v, Decl(override1.ts, 23, 21))
+>bar : Symbol((Anonymous class).bar, Decl(override1.ts, 25, 27))
+>v : Symbol(v, Decl(override1.ts, 27, 21))
     }
 }
 
 class E extends (class {
->E : Symbol(E, Decl(override1.ts, 25, 1))
+>E : Symbol(E, Decl(override1.ts, 29, 1))
 
     foo () { }
->foo : Symbol((Anonymous class).foo, Decl(override1.ts, 27, 24))
+>foo : Symbol((Anonymous class).foo, Decl(override1.ts, 31, 24))
 
     bar () { }
->bar : Symbol((Anonymous class).bar, Decl(override1.ts, 28, 14))
+>bar : Symbol((Anonymous class).bar, Decl(override1.ts, 32, 14))
 
 }) {
     override foo () { }
->foo : Symbol(E.foo, Decl(override1.ts, 30, 4))
+>foo : Symbol(E.foo, Decl(override1.ts, 34, 4))
 
     bar () { }
->bar : Symbol(E.bar, Decl(override1.ts, 31, 23))
+>bar : Symbol(E.bar, Decl(override1.ts, 35, 23))
 
     baz() {}
->baz : Symbol(E.baz, Decl(override1.ts, 32, 14))
+>baz : Symbol(E.baz, Decl(override1.ts, 36, 14))
 
     override bazz () {}
->bazz : Symbol(E.bazz, Decl(override1.ts, 34, 12))
+>bazz : Symbol(E.bazz, Decl(override1.ts, 38, 12))
 }
 
 function ff () {
->ff : Symbol(ff, Decl(override1.ts, 37, 1))
+>ff : Symbol(ff, Decl(override1.ts, 41, 1))
 
     return class {
         override foo () {}
->foo : Symbol((Anonymous class).foo, Decl(override1.ts, 40, 18))
+>foo : Symbol((Anonymous class).foo, Decl(override1.ts, 44, 18))
     }
 }

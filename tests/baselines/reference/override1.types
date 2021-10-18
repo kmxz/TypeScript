@@ -26,6 +26,10 @@ class D extends B {
     override bar(v: string) {}
 >bar : (v: string) => void
 >v : string
+
+    override toString() { return ''; }
+>toString : () => string
+>'' : ""
 }
 
 class C {
@@ -34,6 +38,10 @@ class C {
     override foo(v: string) {}
 >foo : (v: string) => void
 >v : string
+
+    override toString() { return ''; }
+>toString : () => string
+>'' : ""
 }
 
 function f () {

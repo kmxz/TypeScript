@@ -10,10 +10,14 @@ class D extends B {
     fooo (v: string) {}
 
     override bar(v: string) {}
+
+    override toString() { return ''; }
 }
 
 class C {
     override foo(v: string) {}
+
+    override toString() { return ''; }
 }
 
 function f () {
@@ -75,12 +79,14 @@ var D = /** @class */ (function (_super) {
     D.prototype.foo = function (v) { };
     D.prototype.fooo = function (v) { };
     D.prototype.bar = function (v) { };
+    D.prototype.toString = function () { return ''; };
     return D;
 }(B));
 var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (v) { };
+    C.prototype.toString = function () { return ''; };
     return C;
 }());
 function f() {
@@ -131,9 +137,11 @@ declare class D extends B {
     foo(v: string): void;
     fooo(v: string): void;
     bar(v: string): void;
+    toString(): string;
 }
 declare class C {
     foo(v: string): void;
+    toString(): string;
 }
 declare function f(): {
     new (): {

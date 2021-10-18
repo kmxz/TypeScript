@@ -11,10 +11,14 @@ class D extends B {
     fooo (v: string) {}
 
     override bar(v: string) {}
+
+    override toString() { return ''; }
 }
 
 class C {
     override foo(v: string) {}
+
+    override toString() { return ''; }
 }
 
 function f () {

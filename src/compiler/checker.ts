@@ -38431,7 +38431,7 @@ namespace ts {
             const nodeInAmbientContext = !!(node.flags & NodeFlags.Ambient);
             const baseTypeNode = getEffectiveBaseTypeNode(node);
             const baseTypes = baseTypeNode && getBaseTypes(type);
-            const baseWithThis = baseTypes?.length ? getTypeWithThisArgument(first(baseTypes), type.thisType) : undefined;
+            const baseWithThis = baseTypes?.length ? getTypeWithThisArgument(first(baseTypes), type.thisType) : globalObjectType;
             const baseStaticType = getBaseConstructorTypeOfClass(type);
 
             for (const member of node.members) {
@@ -38453,7 +38453,7 @@ namespace ts {
                 const hasOverride = hasOverrideModifier(member);
                 const hasStatic = isStatic(member);
                 const isJs = isInJSFile(member);
-                if (baseWithThis && (hasOverride || compilerOptions.noImplicitOverride)) {
+                if (hasOverride || compilerOptions.noImplicitOverride) {
                     const declaredProp = member.name && getSymbolAtLocation(member.name) || getSymbolAtLocation(member);
                     if (!declaredProp) {
                         return;
@@ -38502,15 +38502,6 @@ namespace ts {
                             error(member, Diagnostics.This_member_must_have_an_override_modifier_because_it_overrides_an_abstract_method_that_is_declared_in_the_base_class_0, baseClassName);
                         }
                     }
-                }
-                else if (hasOverride) {
-                    const className = typeToString(type);
-                    error(
-                        member,
-                        isJs ?
-                            Diagnostics.This_member_cannot_have_a_JSDoc_comment_with_an_override_tag_because_its_containing_class_0_does_not_extend_another_class :
-                            Diagnostics.This_member_cannot_have_an_override_modifier_because_its_containing_class_0_does_not_extend_another_class,
-                        className);
                 }
             }
         }

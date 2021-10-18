@@ -6,8 +6,8 @@ tests/cases/conformance/override/override5.ts(25,14): error TS1029: 'public' mod
 tests/cases/conformance/override/override5.ts(27,5): error TS1089: 'override' modifier cannot appear on a constructor declaration.
 tests/cases/conformance/override/override5.ts(39,14): error TS1029: 'abstract' modifier must precede 'override' modifier.
 tests/cases/conformance/override/override5.ts(44,14): error TS1029: 'abstract' modifier must precede 'override' modifier.
-tests/cases/conformance/override/override5.ts(44,23): error TS4112: This member cannot have an 'override' modifier because its containing class 'AND' does not extend another class.
-tests/cases/conformance/override/override5.ts(45,23): error TS4112: This member cannot have an 'override' modifier because its containing class 'AND' does not extend another class.
+tests/cases/conformance/override/override5.ts(44,23): error TS4113: This member cannot have an 'override' modifier because it is not declared in the base class 'Object'.
+tests/cases/conformance/override/override5.ts(45,23): error TS4113: This member cannot have an 'override' modifier because it is not declared in the base class 'Object'.
 
 
 ==== tests/cases/conformance/override/override5.ts (10 errors) ====
@@ -72,10 +72,10 @@ tests/cases/conformance/override/override5.ts(45,23): error TS4112: This member 
                  ~~~~~~~~
 !!! error TS1029: 'abstract' modifier must precede 'override' modifier.
                           ~
-!!! error TS4112: This member cannot have an 'override' modifier because its containing class 'AND' does not extend another class.
+!!! error TS4113: This member cannot have an 'override' modifier because it is not declared in the base class 'Object'.
         abstract override b(): void;
                           ~
-!!! error TS4112: This member cannot have an 'override' modifier because its containing class 'AND' does not extend another class.
+!!! error TS4113: This member cannot have an 'override' modifier because it is not declared in the base class 'Object'.
     }
     
     class ADD extends AD {
